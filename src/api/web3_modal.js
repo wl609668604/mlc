@@ -1,33 +1,19 @@
-import Web3Modal from "web3modal";
-import Fortmatic from "fortmatic";
+// Unpkg imports
+import Web3Modal from "bitkeep-web3modal";
 import Web3 from "web3";
 
 const WalletConnectProvider = window.WalletConnectProvider.default;
 
-const web3Modal = new Web3Modal({
-  cacheProvider: true, // optional
-  providerOptions: {
-    walletconnect: {
-      package: WalletConnectProvider,
-      options: {
-        infuraId: "8043bb2cf99347b1bfadfb233c5325c0",
-      },
-    },
-    fortmatic: {
-      package: Fortmatic,
-      options: {
-        key: "pk_test_391E26A3B43A3350",
-      },
-    },
-  },
-});
-
 let web3 = null;
 let provider = null;
+let web3Modal = null;
 
 export async function connectWallet() {
   try {
-    alert("开始链接");
+    if(web3Modal == null) {
+       await initWeb3Modal();
+    }
+    //alert("开始链接");
     provider = await web3Modal.connect();
     web3 = new Web3(provider);
     return { web3 };
@@ -36,6 +22,26 @@ export async function connectWallet() {
     console.error('Error connecting wallet:', error);
     throw error;
   }
+}
+
+export async function initWeb3Modal() {
+    const providerOptions = {
+      walletconnect: {
+          package: WalletConnectProvider,
+          options: {
+              rpc: {
+                56: 'https://bsc-dataseed.binance.org/'
+              },
+              network: 'binance',
+          }
+      }
+  };
+
+  web3Modal = new Web3Modal({
+      cacheProvider: true, // optional
+      providerOptions, // required
+      disableInjectedProvider: false, // optional. For MetaMask / Brave / Opera.
+  });
 }
 
 export function disconnectWallet() {
