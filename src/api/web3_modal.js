@@ -37,7 +37,10 @@ export async function getWeb3Instance() {
   return web3;
 }
 
-export function getUserAddress() {
+export async function getUserAddress() {
+  if (!web3) {
+    const { web3: newWeb3 } = await connectWallet();
+  }
   return web3
     ? web3.eth.getAccounts().then(accounts => accounts[0])
     : Promise.resolve(null);
