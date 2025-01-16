@@ -27,8 +27,9 @@
     "vue-resize-text": "^0.1.1",
     "vue-router": "^3.2.0",
     "vuex": "^3.4.0",
-    "web3": "^1.2.9",
-    "bitkeep-web3modal": "^1.9.10"
+    "bitkeep-web3modal": "^1.9.10",
+    "web3": "^1.8.0",
+    "web3modal": "^1.9.9"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",

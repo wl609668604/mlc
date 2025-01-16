@@ -4,26 +4,16 @@ import Web3 from "web3";
 
 const WalletConnectProvider = window.WalletConnectProvider.default;
 
-let web3 = null;
-let provider = null;
-let web3Modal = null;
+// Web3modal instance
+export let web3Modal
+// Chosen wallet provider given by the dialog window
+export let provider;
+// Address of the selected account
+export let web3;
 
 export async function connectWallet() {
   try {
-    await initWeb3Modal();
-    //alert("开始链接");
-    provider = await web3Modal.connect();
-    web3 = new Web3(provider);
-    return { web3 };
-  } catch (error) {
-    alert("链接报错："+error.message);
-    console.error('Error connecting wallet:', error);
-    throw error;
-  }
-}
-
-export async function initWeb3Modal() {
-  const providerOptions = {
+    const providerOptions = {
       walletconnect: {
           package: WalletConnectProvider,
           options: {
@@ -33,13 +23,22 @@ export async function initWeb3Modal() {
               network: 'binance',
           }
       }
-  };
+    };
 
-  web3Modal = new Web3Modal({
-      cacheProvider: true, // optional
-      providerOptions, // required
-      disableInjectedProvider: false, // optional. For MetaMask / Brave / Opera.
-  });
+    web3Modal = new Web3Modal({
+        cacheProvider: true, // optional
+        providerOptions, // required
+        disableInjectedProvider: false, // optional. For MetaMask / Brave / Opera.
+    });
+    //alert("开始链接");
+    provider = await web3Modal.connect();
+    web3 = new Web3(provider);
+    return { web3 };
+  } catch (error) {
+    alert("链接报错："+error.message);
+    console.error('Error connecting wallet:', error);
+    throw error;
+  }
 }
 
 export function disconnectWallet() {
