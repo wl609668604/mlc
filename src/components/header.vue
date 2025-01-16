@@ -29,6 +29,7 @@
 
 <script>
 import { connectTron} from "@/api/Public";
+import { getUserAddress } from "@/api/web3_modal";
 export default {
   name: 'HelloWorld',
   props: {
@@ -97,19 +98,15 @@ export default {
   },
   methods:{
     ethConnect() {
-      connectTron().then((info) => {
-        if (info[0]&&info[0].indexOf("0x") == 0) {  
-          this.userWallet=info[0]  
-          this.$store.commit("userWallet", info[0]); 
-                  // this.shows=false                  
-    // transferHt(info[0]).then(res=>{
-    //   if(res){
-        // this.pustadd(info[0])
-      // }
-      // })
+      getUserAddress().then((info) => {
+        if (info) {  
+          this.userWallet=info 
+          this.$store.commit("userWallet", info);      
         } else {
-          // this.$toast(this.$i18n.t("m.qsydzdl"));
+          this.$toast("请使用钱包地址登录");
         }
+      }).catch(err=>{
+        this.$notify(err);
       });
     },
     onSelect(item) {

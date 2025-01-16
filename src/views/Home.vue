@@ -227,7 +227,7 @@
         </div>
       </div>
     </van-popup>
-    <!-- <van-popup v-model="shows" round :close-on-click-overlay="false">
+    <van-popup v-model="shows" round :close-on-click-overlay="false">
       <div class="popup">
         <div class="ntop">
           <div class="title">登录到您的账户</div>
@@ -235,7 +235,7 @@
         <div class="txt">要使用您个人账户的功能，请点击链接钱包</div>
         <div class="btn" @click="ethConnect">链接钱包</div>
       </div>
-    </van-popup> -->
+    </van-popup>
       <Bottom/>
       </div>
     </template>
@@ -292,11 +292,9 @@ import Web3 from 'web3'
   beforeCreate() {
     // var i = 0;
     // var a = setInterval(() => {
-    //   if (typeof window.ethereum == "undefined"){this.shows=true}
-    //   if (typeof window.ethereum !== "undefined") {
-    //     connectTron().then((info) => {
+    //     getUserAddress().then((info) => {
     //       clearInterval(a);
-    //       if (info[0] && info[0].indexOf("0x") == 0) {
+    //       if (info && info.indexOf("0x") == 0) {
     //         this.shows=false
     //         if (this.$store.getters.myFil != info[0]) {
     //           this.impower=true
@@ -311,7 +309,6 @@ import Web3 from 'web3'
     //         // this.$notify("请使用HECO地址登录游戏");
     //       }
     //     });
-    //   }
     //   if (i > 5) {
     //     this.shows=true
     //     this.$notify("钱包失联了！！");
@@ -353,14 +350,17 @@ import Web3 from 'web3'
   },
   methods:{
     ethConnect() {
-      connectTron().then((info) => {
-        if (info[0] && info[0].indexOf("0x") == 0) {
+      getUserAddress().then((info) => {
+        console.log(info);
+        if (info) {
           this.shows = false;
-          this.cread(info[0]);
-          this.$store.commit("userWallet", info[0]);
+          this.cread(info);
+          this.$store.commit("userWallet", info);
         } else {
-          this.$toast("请使用钱包地址授权登录");
+          this.$notify("请使用钱包地址登录");
         }
+      }).catch(err=>{
+        this.$notify(err);
       });
     },
     getPrice(){
