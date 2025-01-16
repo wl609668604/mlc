@@ -52,16 +52,16 @@ export default {
     let sID = setInterval(async () => {
       const attr = await getAddress();
       if(attr){
+        console.log('钱包地址',attr)
+        this.$store.commit("updateAddress", attr);
+
+        // 判断是否已经绑定
+        const isBing =  await hasReferrer();
+        this.showBinding = !isBing;
+        console.log('是否已经绑定',isBing)
+        
         clearInterval(sID)  
       }
-
-      console.log('钱包地址',attr)
-      this.$store.commit("updateAddress", attr);
-
-      // 判断是否已经绑定
-      const isBing =  await hasReferrer();
-      this.showBinding = !isBing;
-      console.log('是否已经绑定',isBing)
     }, 1000);
 
   },
