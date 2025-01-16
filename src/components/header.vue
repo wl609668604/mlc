@@ -8,8 +8,8 @@
          <img src="../assets/img/logo.png" alt=""  class="img2" />
          </div>
          </div> 
-         <div class="navbtn fadeInRight" @click="ethConnect">
-          <span>{{this.$store.getters.userWallet?this.$store.getters.userWallet :'Connect' |yingcang}}</span>
+         <div class="navbtn fadeInRight">
+          <span>{{ this.$store.getters.address ? this.$store.getters.address :'Connect' | yingcang }}</span>
         </div>      
         </div>
         <div class="flexright">
@@ -29,7 +29,6 @@
 
 <script>
 import { connectTron} from "@/api/Public";
-import { getUserAddress } from "@/api/web3_modal";
 export default {
   name: 'HelloWorld',
   props: {
@@ -97,18 +96,6 @@ export default {
     this.userWallet = this.$store.getters.userWallet;  
   },
   methods:{
-    ethConnect() {
-      getUserAddress().then((info) => {
-        if (info) {  
-          this.userWallet=info 
-          this.$store.commit("userWallet", info);      
-        } else {
-          this.$toast("请使用钱包地址登录");
-        }
-      }).catch(err=>{
-        this.$notify(err);
-      });
-    },
     onSelect(item) {
       this.lang=item
       let val=item.value
