@@ -27,10 +27,12 @@ let provider = null;
 
 export async function connectWallet() {
   try {
+    alert("开始链接");
     provider = await web3Modal.connect();
     web3 = new Web3(provider);
     return { web3 };
   } catch (error) {
+    alert("链接报错："+error.message);
     console.error('Error connecting wallet:', error);
     throw error;
   }
