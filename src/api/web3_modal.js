@@ -10,9 +10,7 @@ let web3Modal = null;
 
 export async function connectWallet() {
   try {
-    if(web3Modal == null) {
-       await initWeb3Modal();
-    }
+    await initWeb3Modal();
     //alert("开始链接");
     provider = await web3Modal.connect();
     web3 = new Web3(provider);
@@ -25,7 +23,7 @@ export async function connectWallet() {
 }
 
 export async function initWeb3Modal() {
-    const providerOptions = {
+  const providerOptions = {
       walletconnect: {
           package: WalletConnectProvider,
           options: {
@@ -45,9 +43,9 @@ export async function initWeb3Modal() {
 }
 
 export function disconnectWallet() {
-  web3Modal.clearCachedProvider();
-  provider = null;
-  web3 = null;
+  // web3Modal.clearCachedProvider();
+  // provider = null;
+  // web3 = null;
 }
 
 export async function getWeb3Instance() {
