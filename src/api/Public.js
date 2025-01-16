@@ -414,7 +414,7 @@ export async  function toBind(_address,referrer){
       return true;
 }
 // 用户创建订单
-export async  function toBookOrder(address,num){
+export async  function toBookOrder(_address,num){
 
         const { web3 } = await connectWallet();
         if (!web3) {
@@ -444,7 +444,7 @@ export async  function toBookOrder(address,num){
       return true;
 }
   // 用户赎回订单函数
-  export async function getRedeemOrder(address) {  
+  export async function getRedeemOrder(_address) {  
     const { web3 } = await connectWallet();
     if (!web3) {
       throw new Error("web3 is not connected");
@@ -472,7 +472,7 @@ export async  function toBookOrder(address,num){
     return true;
 }
 // 我的社区显示直推信息
-export async function getDirectReferralsInfo(address) {  
+export async function getDirectReferralsInfo(_address) {  
     let run = async () => {
 
              const { web3 } = await connectWallet();
@@ -530,7 +530,7 @@ export function getMymlc(address) {
     return run();
   }
 // 静态提现
-export async function toWithdrawal(address){
+export async function toWithdrawal(_address){
 
         const { web3 } = await connectWallet();
         if (!web3) {
@@ -559,7 +559,7 @@ export async function toWithdrawal(address){
 }
 
 // 动态提现
-export async  function toWithdrawalDynamic(address){
+export async  function toWithdrawalDynamic(_address){
   const { web3 } = await connectWallet();
   if (!web3) {
     throw new Error("web3 is not connected");
