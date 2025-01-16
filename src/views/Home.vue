@@ -306,7 +306,7 @@ import Web3 from 'web3'
     //         //
     //         //
     //       } else {
-    //         // this.$notify("请使用HECO地址登录游戏");
+    //         // this.$notify("请使用BSC地址登录dapp");
     //       }
     //     });
     //   if (i > 5) {
