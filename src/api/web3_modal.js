@@ -1,11 +1,24 @@
 import Web3Modal from "web3modal";
+import Fortmatic from "fortmatic";
 import Web3 from "web3";
 
-// const WalletConnectProvider = window.WalletConnectProvider.default;
+const WalletConnectProvider = window.WalletConnectProvider.default;
 
 const web3Modal = new Web3Modal({
   cacheProvider: true, // optional
   providerOptions: {
+    walletconnect: {
+      package: WalletConnectProvider,
+      options: {
+        infuraId: "8043bb2cf99347b1bfadfb233c5325c0",
+      },
+    },
+    fortmatic: {
+      package: Fortmatic,
+      options: {
+        key: "pk_test_391E26A3B43A3350",
+      },
+    },
   },
 });
 
