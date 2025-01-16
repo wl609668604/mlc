@@ -45,7 +45,7 @@ export async function connectWallet() {
     web3 = new Web3(provider);
     return { web3 };
   } catch (error) {
-    alert("链接报错："+error.message);
+    //alert("链接报错："+error.message);
     console.error('Error connecting wallet:', error);
     throw error;
   }

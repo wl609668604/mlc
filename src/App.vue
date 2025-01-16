@@ -48,9 +48,13 @@ export default {
 
   
   async mounted() {
-    setInterval(async () => {
+
+    let sID = setInterval(async () => {
       const attr = await getAddress();
-      alert('钱包地址:'+attr)
+      if(attr){
+        clearInterval(sID)  
+      }
+
       console.log('钱包地址',attr)
       this.$store.commit("updateAddress", attr);
 
@@ -58,7 +62,7 @@ export default {
       const isBing =  await hasReferrer();
       this.showBinding = !isBing;
       console.log('是否已经绑定',isBing)
-    }, 2000);
+    }, 1000);
 
   },
   methods: {
