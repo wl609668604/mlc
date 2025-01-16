@@ -48,7 +48,7 @@ export default {
 
   
   async mounted() {
-    setInterval(() => {
+    setInterval(async () => {
       const attr = await getAddress();
       alert('钱包地址:'+attr)
       console.log('钱包地址',attr)
