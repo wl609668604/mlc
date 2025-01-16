@@ -384,7 +384,7 @@ export async function getTotalData(address) {
   return run();
 }
 // 绑定邀请人
-export async  function toBind(address,referrer){
+export async  function toBind(_address,referrer){
     //console.log(address,referrer);
 
         const { web3 } = await connectWallet();
