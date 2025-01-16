@@ -190,23 +190,43 @@
           </div>
         </div>
       </div>
-       <!-- 授权 -->
-       <van-popup v-model="impower" round :close-on-click-overlay="false">
-        <div class="popup">
-          <div class="sqtxt">要使用您个人账户的功能，请使用钱包授权</div>
-          <div class="flsz">
-            <van-button
-              :loading="sqloading"
-              type="primary"
-              @click="approve"
-              class="btn"
-              loading-text="授权中"
-            >
-            钱包授权</van-button
-            >
-          </div>
+      <!-- <van-popup v-model="bdshows" round :close-on-click-overlay="!bdshows">
+      <div class="popup">
+        <div class="ntop">
+          <div class="title">绑定上级</div>
         </div>
-      </van-popup>
+        <div class="txt">请输入推荐人钱包地址</div>
+        <div>
+          <input type="text" class="input" v-model="yqmcode" />
+        </div>
+        <van-button
+          :loading="bdloading"
+          type="primary"
+          @click="tobding"
+          class="btn"
+          loading-text="绑定中"
+        >
+          确认绑定</van-button
+        >
+      </div>
+    </van-popup> -->
+       <!-- 授权 -->
+       <!-- <van-popup v-model="impower" round :close-on-click-overlay="false">
+      <div class="popup">
+        <div class="sqtxt">要使用您个人账户的功能，请使用钱包授权</div>
+        <div class="flsz">
+          <van-button
+            :loading="sqloading"
+            type="primary"
+            @click="approve"
+            class="btn"
+            loading-text="授权中"
+          >
+           钱包授权</van-button
+          >
+        </div>
+      </div>
+    </van-popup> -->
     <!-- <van-popup v-model="shows" round :close-on-click-overlay="false">
       <div class="popup">
         <div class="ntop">
@@ -272,11 +292,9 @@ import Web3 from 'web3'
   beforeCreate() {
     // var i = 0;
     // var a = setInterval(() => {
-    //   if (typeof window.ethereum == "undefined"){this.shows=true}
-    //   if (typeof window.ethereum !== "undefined") {
-    //     connectTron().then((info) => {
+    //     getUserAddress().then((info) => {
     //       clearInterval(a);
-    //       if (info[0] && info[0].indexOf("0x") == 0) {
+    //       if (info && info.indexOf("0x") == 0) {
     //         this.shows=false
     //         if (this.$store.getters.myFil != info[0]) {
     //           this.impower=true
@@ -288,10 +306,9 @@ import Web3 from 'web3'
     //         //
     //         //
     //       } else {
-    //         // this.$notify("请使用HECO地址登录游戏");
+    //         // this.$notify("请使用BSC地址登录dapp");
     //       }
     //     });
-    //   }
     //   if (i > 5) {
     //     this.shows=true
     //     this.$notify("钱包失联了！！");
@@ -315,32 +332,35 @@ import Web3 from 'web3'
    
   },
   mounted() {
-    // setTimeout(async ()=>{
-    //   const attr = await getUserAddress();      
-    //   if (attr) {
-    //             console.log('获取地址:'+attr)
-    //         this.shows=false
-    //         if (this.$store.getters.myFil != attr) {
-    //           this.$store.commit("userWallet", attr);
-    //           this.impower=true
-    //         } else {
-    //           this.userWallet = attr;
-    //           this.$store.commit("userWallet", attr);
-    //           this.cread(attr);
-    //         }
-    //       }
-    // },1000)
+    setTimeout(async ()=>{
+      const attr = await getUserAddress();      
+      if (attr) {
+                console.log('获取地址:'+attr)
+            this.shows=false
+            if (this.$store.getters.myFil != attr) {
+              this.$store.commit("userWallet", attr);
+              this.impower=true
+            } else {
+              this.userWallet = attr;
+              this.$store.commit("userWallet", attr);
+              this.cread(attr);
+            }
+          }
+    },1000)
   },
   methods:{
     ethConnect() {
-      connectTron().then((info) => {
-        if (info[0] && info[0].indexOf("0x") == 0) {
+      getUserAddress().then((info) => {
+        console.log(info);
+        if (info) {
           this.shows = false;
-          this.cread(info[0]);
-          this.$store.commit("userWallet", info[0]);
+          this.cread(info);
+          this.$store.commit("userWallet", info);
         } else {
-          this.$toast("请使用钱包地址授权登录");
+          this.$notify("请使用钱包地址登录");
         }
+      }).catch(err=>{
+        this.$notify(err);
       });
     },
     getPrice(){

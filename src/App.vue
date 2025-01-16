@@ -54,7 +54,7 @@ export default {
 
     // 判断是否已经绑定
     const isBing =  await hasReferrer();
-    this.showBinding = isBing;
+    this.showBinding = !isBing;
     console.log('是否已经绑定',isBing)
   },
   methods: {
@@ -452,10 +452,7 @@ padding: 10px !important;
   font-family: DINAlternate-Bold;
   src: url("~@/assets/font/DINPro-Bold.otf");
 }
-@font-face {
-  font-family: PingFang;
-  src: url("~@/assets/font/PingFang SC Regular.ttf");
-}
+
 
 #nav {
   padding: 30px;
