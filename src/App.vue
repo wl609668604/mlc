@@ -58,7 +58,7 @@ export default {
       const isBing =  await hasReferrer();
       this.showBinding = !isBing;
       console.log('是否已经绑定',isBing)
-    }, 1000);
+    }, 2000);
 
   },
   methods: {
