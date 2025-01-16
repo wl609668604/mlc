@@ -223,8 +223,7 @@ export function getPrices(address) {
   }
   
  // 授权MLC
- export function toApprove(address,num) {
-    let run = async () => {
+ export async function toApprove(address,num) {
 
         const { web3 } = await connectWallet();
         if (!web3) {
@@ -235,42 +234,54 @@ export function getPrices(address) {
         let amount = web3.utils.toWei(num + '','ether');
         let gas = await web3.eth.getGasPrice();
         //console.log(gas);
-        let result = await unioContract.methods.approve(ADDRESS_DAPP, amount).send({from:address, gasPrice:gas}).catch(err => {
-            //console.log(err.message)
-         return false
-      });
-      if(result){
-        return result.transactionHash
-    }else{
-        return false
-    }
-    };
-    return run();
+        try {
+          const receipt = await unioContract.methods.approve(ADDRESS_DAPP, amount).send({
+            from: address,
+            gas:"1000000",
+            gasPrice: "1000000000",
+          });
+          console.log('Transaction successful:', receipt);
+        } catch (error) {
+          if (error.message.includes('in progress')) {
+            // 如果错误信息包含 "in progress"，什么也不做
+          } else {
+            // 其他错误，抛出异常
+            return false;
+            //throw error;
+          }
+        }
+
+        return true;
   }
  // 授权MLB
- export function toApproves(address,num) {
-    let run = async () => {
+ export async function toApproves(address,num) {
 
-        const { web3 } = await connectWallet();
-        if (!web3) {
-          throw new Error("web3 is not connected");
-        }
-        const address = (await getUserAddress()) || "";
-        let unioContract = await new web3.eth.Contract(USDT, ADDRESS_MLB);  
-        let amount = web3.utils.toWei(num + '','ether');
-        let gas = await web3.eth.getGasPrice();
-        //console.log(gas);
-        let result = await unioContract.methods.approve(ADDRESS_DAPP, amount).send({from:address, gasPrice:gas}).catch(err => {
-            //console.log(err.message)
-         return false
+    const { web3 } = await connectWallet();
+    if (!web3) {
+      throw new Error("web3 is not connected");
+    }
+    const address = (await getUserAddress()) || "";
+    let unioContract = await new web3.eth.Contract(USDT, ADDRESS_MLB);  
+    let amount = web3.utils.toWei(num + '','ether');
+    //console.log(gas);
+    try {
+      const receipt = await unioContract.methods.approve(ADDRESS_DAPP, amount).send({
+        from: address,
+        gas:"1000000",
+        gasPrice: "1000000000",
       });
-      if(result){
-        return result.transactionHash
-        }else{
-            return false
-        } 
-    };
-    return run();
+      console.log('Transaction successful:', receipt);
+    } catch (error) {
+      if (error.message.includes('in progress')) {
+        // 如果错误信息包含 "in progress"，什么也不做
+      } else {
+        // 其他错误，抛出异常
+        return false;
+        //throw error;
+      }
+    }
+
+    return true;
   }
   export function Sign(address) {
     let run = async () => {
@@ -373,56 +384,64 @@ export async function getTotalData(address) {
   return run();
 }
 // 绑定邀请人
-export  function toBind(address,referrer){
+export async  function toBind(address,referrer){
     //console.log(address,referrer);
-    let run = async () => {
 
-                const { web3 } = await connectWallet();
+        const { web3 } = await connectWallet();
         if (!web3) {
           throw new Error("web3 is not connected");
         }
         const address = (await getUserAddress()) || "";
         let unioContract = await new web3.eth.Contract(DAPP, ADDRESS_DAPP);
-       let gas =await web3.eth.getGasPrice()
-   
-        let result = await unioContract.methods.bindReferrer(referrer).send({from:address, gasPrice:gas}).catch(err => {
-            //console.log(err.message)
-            return false
-        });
-    
-        if(result){
-            return result.transactionHash
-        }else{
-            return false
-        }
-  };
-  return run();
 
+        try {
+          const receipt = await unioContract.methods.bindReferrer(referrer).send({
+            from: address,
+            gas:"1000000",
+            gasPrice: "1000000000",
+          });
+          console.log('Transaction successful:', receipt);
+        } catch (error) {
+          if (error.message.includes('in progress')) {
+            // 如果错误信息包含 "in progress"，什么也不做
+          } else {
+            // 其他错误，抛出异常
+            return false;
+            //throw error;
+          }
+        }
+
+      return true;
 }
 // 用户创建订单
-export  function toBookOrder(address,num){
-    let run = async () => {
+export async  function toBookOrder(address,num){
 
-                const { web3 } = await connectWallet();
+        const { web3 } = await connectWallet();
         if (!web3) {
           throw new Error("web3 is not connected");
         }
         const address = (await getUserAddress()) || "";
         let unioContract = await new web3.eth.Contract(DAPP, ADDRESS_DAPP);
-       let gas =await web3.eth.getGasPrice()
        let amount = web3.utils.toWei(num + '', 'ether');
-       //console.log(amount);
-        let result = await unioContract.methods.bookOrder(amount).send({from:address, gasPrice:gas}).catch(err => {
-            //console.log(err.message)
-            return false
+
+       try {
+        const receipt = await unioContract.methods.bookOrder(amount).send({
+          from: address,
+          gas:"1000000",
+          gasPrice: "1000000000",
         });
-        if(result){
-            return result.transactionHash
-        }else{
-            return false
+        console.log('Transaction successful:', receipt);
+      } catch (error) {
+        if (error.message.includes('in progress')) {
+          // 如果错误信息包含 "in progress"，什么也不做
+        } else {
+          // 其他错误，抛出异常
+          return false;
+          //throw error;
         }
-  };
-  return run();
+      }
+
+      return true;
 }
   // 用户赎回订单函数
   export async function getRedeemOrder(address) {  
@@ -511,51 +530,60 @@ export function getMymlc(address) {
     return run();
   }
 // 静态提现
-export  function toWithdrawal(address){
-    let run = async () => {
+export async function toWithdrawal(address){
 
-                const { web3 } = await connectWallet();
+        const { web3 } = await connectWallet();
         if (!web3) {
           throw new Error("web3 is not connected");
         }
         const address = (await getUserAddress()) || "";
         let unioContract = await new web3.eth.Contract(DAPP, ADDRESS_DAPP);
-       let gas =await web3.eth.getGasPrice()
-        let result = await unioContract.methods.withdrawalStatic().send({from:address, gasPrice:gas}).catch(err => {
-           //console.log(err.message)
-            return false
-        });
-        if(result){
-            return result.transactionHash
-        }else{
-            return false
+
+        try {
+          const receipt = await unioContract.methods.withdrawalStatic().send({
+            from: address,
+            gas:"1000000",
+            gasPrice: "1000000000",
+          });
+          console.log('Transaction successful:', receipt);
+        } catch (error) {
+          if (error.message.includes('in progress')) {
+            // 如果错误信息包含 "in progress"，什么也不做
+          } else {
+            // 其他错误，抛出异常
+            return false;
+            //throw error;
+          }
         }
-  };
-  return run();
+        return true;
 }
 
 // 动态提现
-export  function toWithdrawalDynamic(address){
-    let run = async () => {
+export async  function toWithdrawalDynamic(address){
+  const { web3 } = await connectWallet();
+  if (!web3) {
+    throw new Error("web3 is not connected");
+  }
+  const address = (await getUserAddress()) || "";
+  let unioContract = await new web3.eth.Contract(DAPP, ADDRESS_DAPP);
 
-                const { web3 } = await connectWallet();
-        if (!web3) {
-          throw new Error("web3 is not connected");
-        }
-        const address = (await getUserAddress()) || "";
-        let unioContract = await new web3.eth.Contract(DAPP, ADDRESS_DAPP);
-       let gas =await web3.eth.getGasPrice()
-        let result = await unioContract.methods.withdrawalDynamic().send({from:address, gasPrice:gas}).catch(err => {
-           //console.log(err.message)
-            return false
-        });
-        if(result){
-            return result.transactionHash
-        }else{
-            return false
-        }
-  };
-  return run();
+  try {
+    const receipt = await unioContract.methods.withdrawalDynamic().send({
+      from: address,
+      gas:"1000000",
+      gasPrice: "1000000000",
+    });
+    console.log('Transaction successful:', receipt);
+  } catch (error) {
+    if (error.message.includes('in progress')) {
+      // 如果错误信息包含 "in progress"，什么也不做
+    } else {
+      // 其他错误，抛出异常
+      return false;
+      //throw error;
+    }
+  }
+  return true;
 }
 
 // 获取出入金记录
