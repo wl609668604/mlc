@@ -190,43 +190,23 @@
           </div>
         </div>
       </div>
-      <van-popup v-model="bdshows" round :close-on-click-overlay="!bdshows">
-      <div class="popup">
-        <div class="ntop">
-          <div class="title">绑定上级</div>
-        </div>
-        <div class="txt">请输入推荐人钱包地址</div>
-        <div>
-          <input type="text" class="input" v-model="yqmcode" />
-        </div>
-        <van-button
-          :loading="bdloading"
-          type="primary"
-          @click="tobding"
-          class="btn"
-          loading-text="绑定中"
-        >
-          确认绑定</van-button
-        >
-      </div>
-    </van-popup>
        <!-- 授权 -->
        <van-popup v-model="impower" round :close-on-click-overlay="false">
-      <div class="popup">
-        <div class="sqtxt">要使用您个人账户的功能，请使用钱包授权</div>
-        <div class="flsz">
-          <van-button
-            :loading="sqloading"
-            type="primary"
-            @click="approve"
-            class="btn"
-            loading-text="授权中"
-          >
-           钱包授权</van-button
-          >
+        <div class="popup">
+          <div class="sqtxt">要使用您个人账户的功能，请使用钱包授权</div>
+          <div class="flsz">
+            <van-button
+              :loading="sqloading"
+              type="primary"
+              @click="approve"
+              class="btn"
+              loading-text="授权中"
+            >
+            钱包授权</van-button
+            >
+          </div>
         </div>
-      </div>
-    </van-popup>
+      </van-popup>
     <!-- <van-popup v-model="shows" round :close-on-click-overlay="false">
       <div class="popup">
         <div class="ntop">
@@ -335,21 +315,21 @@ import Web3 from 'web3'
    
   },
   mounted() {
-    setTimeout(async ()=>{
-      const attr = await getUserAddress();      
-      if (attr) {
-                console.log('获取地址:'+attr)
-            this.shows=false
-            if (this.$store.getters.myFil != attr) {
-              this.$store.commit("userWallet", attr);
-              this.impower=true
-            } else {
-              this.userWallet = attr;
-              this.$store.commit("userWallet", attr);
-              this.cread(attr);
-            }
-          }
-    },1000)
+    // setTimeout(async ()=>{
+    //   const attr = await getUserAddress();      
+    //   if (attr) {
+    //             console.log('获取地址:'+attr)
+    //         this.shows=false
+    //         if (this.$store.getters.myFil != attr) {
+    //           this.$store.commit("userWallet", attr);
+    //           this.impower=true
+    //         } else {
+    //           this.userWallet = attr;
+    //           this.$store.commit("userWallet", attr);
+    //           this.cread(attr);
+    //         }
+    //       }
+    // },1000)
   },
   methods:{
     ethConnect() {

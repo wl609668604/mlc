@@ -14,8 +14,17 @@ export default new Vuex.Store({
     myFil: "" || sessionStorage.getItem("myFil"),
     language: sessionStorage.getItem('yy') || "en-US",
      theame:localStorage.getItem('theame') || '0',
+    
+    // 连接地址
+    address: "",
   },
   mutations: {
+    // 更新连接地址
+    updateAddress(state, val) {
+      state.address = val;
+    },
+
+
     userWallet(state, val) {
       // state.userWallet = val;
       Vue.set(state,'userWallet',val)
@@ -67,6 +76,8 @@ export default new Vuex.Store({
     intID: (state) => state.intID,
     myFil: (state) => state.myFil,
     language: (state) => state.language,
-     theame: (state)=>state.theame,
+    theame: (state)=>state.theame,
+    
+    address: (state) => state.address,
   },
 });
