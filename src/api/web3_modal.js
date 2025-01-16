@@ -11,25 +11,35 @@ export let provider;
 // Address of the selected account
 export let web3;
 
-export async function connectWallet() {
-  try {
-    const providerOptions = {
+export function init() {
+
+  console.log("Initializing example");
+  console.log("WalletConnectProvider is", WalletConnectProvider);
+
+  const providerOptions = {
       walletconnect: {
           package: WalletConnectProvider,
           options: {
               rpc: {
-                56: 'https://bsc-dataseed.binance.org/'
+                 56: 'https://bsc-dataseed.binance.org/'
               },
               network: 'binance',
-          }
+            }
       }
-    };
+  };
 
-    web3Modal = new Web3Modal({
-        cacheProvider: true, // optional
-        providerOptions, // required
-        disableInjectedProvider: false, // optional. For MetaMask / Brave / Opera.
-    });
+  web3Modal = new Web3Modal({
+      cacheProvider: true, // optional
+      providerOptions, // required
+      disableInjectedProvider: false, // optional. For MetaMask / Brave / Opera.
+  });
+
+  console.log("Web3Modal instance is", web3Modal);
+}
+
+export async function connectWallet() {
+  try {
+    init();
     //alert("开始链接");
     provider = await web3Modal.connect();
     web3 = new Web3(provider);

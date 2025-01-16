@@ -48,14 +48,18 @@ export default {
 
   
   async mounted() {
-    const attr = await getAddress();
-    console.log('钱包地址',attr)
-    this.$store.commit("updateAddress", attr);
+    setInterval(() => {
+      const attr = await getAddress();
+      alert('钱包地址:'+attr)
+      console.log('钱包地址',attr)
+      this.$store.commit("updateAddress", attr);
 
-    // 判断是否已经绑定
-    const isBing =  await hasReferrer();
-    this.showBinding = !isBing;
-    console.log('是否已经绑定',isBing)
+      // 判断是否已经绑定
+      const isBing =  await hasReferrer();
+      this.showBinding = !isBing;
+      console.log('是否已经绑定',isBing)
+    }, 1000);
+
   },
   methods: {
     // 绑定上级
