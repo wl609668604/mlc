@@ -190,7 +190,7 @@
           </div>
         </div>
       </div>
-      <van-popup v-model="bdshows" round :close-on-click-overlay="!bdshows">
+      <!-- <van-popup v-model="bdshows" round :close-on-click-overlay="!bdshows">
       <div class="popup">
         <div class="ntop">
           <div class="title">绑定上级</div>
@@ -209,9 +209,9 @@
           确认绑定</van-button
         >
       </div>
-    </van-popup>
+    </van-popup> -->
        <!-- 授权 -->
-       <van-popup v-model="impower" round :close-on-click-overlay="false">
+       <!-- <van-popup v-model="impower" round :close-on-click-overlay="false">
       <div class="popup">
         <div class="sqtxt">要使用您个人账户的功能，请使用钱包授权</div>
         <div class="flsz">
@@ -226,8 +226,8 @@
           >
         </div>
       </div>
-    </van-popup>
-    <van-popup v-model="shows" round :close-on-click-overlay="false">
+    </van-popup> -->
+    <!-- <van-popup v-model="shows" round :close-on-click-overlay="false">
       <div class="popup">
         <div class="ntop">
           <div class="title">登录到您的账户</div>
@@ -235,7 +235,7 @@
         <div class="txt">要使用您个人账户的功能，请点击链接钱包</div>
         <div class="btn" @click="ethConnect">链接钱包</div>
       </div>
-    </van-popup>
+    </van-popup> -->
       <Bottom/>
       </div>
     </template>

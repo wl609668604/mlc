@@ -95,6 +95,11 @@ const ADDRESS_USDT ="0x55d398326f99059fF775485246999027B3197955"
 //     return eth_requestAccounts
 // }
 
+  // 判断时候绑定
+
+
+
+  
   export function gethasReferrer(address) {
     let run = async () => {
           const { web3 } = await connectWallet();
