@@ -223,7 +223,7 @@ export function getPrices(address) {
   }
   
  // 授权MLC
- export async function toApprove(address,num) {
+ export async function toApprove(_address,num) {
 
         const { web3 } = await connectWallet();
         if (!web3) {
@@ -254,7 +254,7 @@ export function getPrices(address) {
         return true;
   }
  // 授权MLB
- export async function toApproves(address,num) {
+ export async function toApproves(_address,num) {
 
     const { web3 } = await connectWallet();
     if (!web3) {
