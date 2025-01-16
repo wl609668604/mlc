@@ -1,0 +1,1000 @@
+[
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "referrer",
+				"type": "address"
+			}
+		],
+		"name": "bindReferrer",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			}
+		],
+		"name": "bookOrder",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "initialize",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "InvalidInitialization",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "NotInitializing",
+		"type": "error"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint64",
+				"name": "version",
+				"type": "uint64"
+			}
+		],
+		"name": "Initialized",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "previousOwner",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "newOwner",
+				"type": "address"
+			}
+		],
+		"name": "OwnershipTransferred",
+		"type": "event"
+	},
+	{
+		"inputs": [],
+		"name": "redeemOrder",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "renounceOwnership",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "rewardStatic",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_walletA",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "_walletB",
+				"type": "address"
+			}
+		],
+		"name": "setAddress",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_admin",
+				"type": "address"
+			}
+		],
+		"name": "setAdmin",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_con1",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_con2",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_con3",
+				"type": "uint256"
+			}
+		],
+		"name": "setConfig",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_priceMlb",
+				"type": "uint256"
+			}
+		],
+		"name": "setPriceMlb",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_priceMlc",
+				"type": "uint256"
+			}
+		],
+		"name": "setPriceMlc",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "user",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "level",
+				"type": "uint256"
+			}
+		],
+		"name": "setUserLevel",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "newOwner",
+				"type": "address"
+			}
+		],
+		"name": "transferOwnership",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "withdrawalDynamic",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "withdrawalStatic",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_token",
+				"type": "address"
+			}
+		],
+		"name": "wToken",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "admin",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "referrer",
+				"type": "address"
+			}
+		],
+		"name": "canBind",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "con1",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "con2",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "con3",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getAllusers",
+		"outputs": [
+			{
+				"internalType": "address[]",
+				"name": "",
+				"type": "address[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "userAddress",
+				"type": "address"
+			}
+		],
+		"name": "getDirectReferralsInfo",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "address",
+						"name": "userAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "runInvestment",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "totalInvestmentU",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "communityPerformanceU",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "userLevel",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct MSDEFI.ReferralInfo[]",
+				"name": "",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "userAddress",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "pageNumber",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "pageSize",
+				"type": "uint256"
+			}
+		],
+		"name": "getDirectReferralsPage",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "address",
+						"name": "userAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "runInvestment",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "totalInvestmentU",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "communityPerformanceU",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "userLevel",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct MSDEFI.ReferralInfo[]",
+				"name": "",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "user",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "size",
+				"type": "uint256"
+			}
+		],
+		"name": "getHistoryDynamic",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "timestamp",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "status",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct MSDEFI.History[]",
+				"name": "",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "user",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "size",
+				"type": "uint256"
+			}
+		],
+		"name": "getHistoryStatic",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "timestamp",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "status",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct MSDEFI.History[]",
+				"name": "",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "user",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "size",
+				"type": "uint256"
+			}
+		],
+		"name": "getHistoryWallet",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "timestamp",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "status",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct MSDEFI.History[]",
+				"name": "",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getPriceMlb",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getPriceMlc",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getRankUsers",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "address",
+						"name": "rankAddr",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "communityPerformanceU",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct MSDEFI.Rank[]",
+				"name": "",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "user",
+				"type": "address"
+			}
+		],
+		"name": "hasReferrer",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "mlbToken",
+		"outputs": [
+			{
+				"internalType": "contract IERC20",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "mlcToken",
+		"outputs": [
+			{
+				"internalType": "contract IERC20",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "owner",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "priceMlb",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "priceMlc",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "rankAddresses",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "rankMapping",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "rankAddr",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "communityPerformanceU",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "releationContract",
+		"outputs": [
+			{
+				"internalType": "contract IReleation",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "runUsers",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "startTime",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "totalData",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "data1",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "data2",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "data3",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "data4",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "data5",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "data6",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "totalUsers",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "userExtras",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "lastInTime",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "staticAmountMlb",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "dynamicAmountMlb",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "userInvestWeek",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "userLevelCounts",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "users",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "referrer",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "communityPerformanceU",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "runInvestment",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "totalInvestmentU",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "staticAmount",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "dynamicAmount",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "staticRecived",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "dynamicRecived",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "userLevel",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "walletA",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "walletB",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "weekNow",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]
