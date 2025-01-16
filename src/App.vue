@@ -79,10 +79,7 @@ padding: 10px !important;
   font-family: DINAlternate-Bold;
   src: url("~@/assets/font/DINPro-Bold.otf");
 }
-@font-face {
-  font-family: PingFang;
-  src: url("~@/assets/font/PingFang SC Regular.ttf");
-}
+
 
 #nav {
   padding: 30px;
