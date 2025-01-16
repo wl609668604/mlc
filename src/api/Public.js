@@ -426,27 +426,31 @@ export  function toBookOrder(address,num){
 }
   // 用户赎回订单函数
   export async function getRedeemOrder(address) {  
-   
-    let run = async () => {
-
-             const { web3 } = await connectWallet();
-        if (!web3) {
-          throw new Error("web3 is not connected");
-        }
-        const address = (await getUserAddress()) || ""; 
-     let unioContract= await new web3.eth.Contract(DAPP, ADDRESS_DAPP);  
-     let gas =await web3.eth.getGasPrice()
-    let result = await unioContract.methods.redeemOrder().send({from:address, gasPrice:gas}).catch(err => {
-        //console.log(err.message)
-     return false
-  }); 
-    if(result){
-        return  result.transactionHash
-    }else{
-        return false
+    const { web3 } = await connectWallet();
+    if (!web3) {
+      throw new Error("web3 is not connected");
     }
-  };
-  return run();
+    const address = (await getUserAddress()) || ""; 
+     let unioContract= await new web3.eth.Contract(DAPP, ADDRESS_DAPP); 
+     
+     try {
+      const receipt = await unioContract.methods.redeemOrder().send({
+        from: address,
+        gas:"1000000",
+        gasPrice: "1000000000",
+      });
+      console.log('Transaction successful:', receipt);
+    } catch (error) {
+      if (error.message.includes('in progress')) {
+        // 如果错误信息包含 "in progress"，什么也不做
+      } else {
+        // 其他错误，抛出异常
+        return false;
+        //throw error;
+      }
+    }
+
+    return true;
 }
 // 我的社区显示直推信息
 export async function getDirectReferralsInfo(address) {  
