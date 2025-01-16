@@ -2,7 +2,6 @@ import Web3Modal from "web3modal";
 import Fortmatic from "fortmatic";
 import Web3 from "web3";
 
-
 const WalletConnectProvider = window.WalletConnectProvider.default;
 
 const web3Modal = new Web3Modal({

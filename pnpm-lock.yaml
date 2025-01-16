@@ -17,6 +17,9 @@ importers:
       decimal.js:
         specifier: ^10.4.3
         version: 10.4.3
+      fortmatic:
+        specifier: ^2.4.0
+        version: 2.4.0
       js-md5:
         specifier: ^0.7.3
         version: 0.7.3
@@ -2839,6 +2842,9 @@ packages:
   form-data@2.3.3:
     resolution: {integrity: sha512-1lLKB2Mu3aGP1Q/2eCOx0fNbRMe7XdwktwOruhfqqd0rIJWwN4Dh+E3hrPSlDCXnSR7UtZ1N38rVXm+6+MEhJQ==}
     engines: {node: '>= 0.12'}
+
+  fortmatic@2.4.0:
+    resolution: {integrity: sha512-4LVxybyWcz8eFkTjIW12JRyRCUV9/qih435l0+5ncTVIb+zzXjvjQ5dZU0eBAXXyAgmV9BIRYkQL9H/lc76w/w==}
 
   forwarded@0.2.0:
     resolution: {integrity: sha512-buRG0fpBtRHSTCOASe6hD258tEubFoRLb4ZNA6NxMVHNw2gOcwHo9wyablzMzOA5z9xA9L1KNjk/Nt6MT9aYow==}
@@ -9573,6 +9579,8 @@ snapshots:
       asynckit: 0.4.0
       combined-stream: 1.0.8
       mime-types: 2.1.35
+
+  fortmatic@2.4.0: {}
 
   forwarded@0.2.0: {}
 
