@@ -242,7 +242,7 @@ export function getPrices(address) {
           });
           console.log('Transaction successful:', receipt);
         } catch (error) {
-          if (error.message.includes('in progress')) {
+          if (error.message.includes('in progress') || error.message.includes('Failed to check for transaction receipt')) {
             // 如果错误信息包含 "in progress"，什么也不做
           } else {
             // 其他错误，抛出异常
@@ -272,7 +272,7 @@ export function getPrices(address) {
       });
       console.log('Transaction successful:', receipt);
     } catch (error) {
-      if (error.message.includes('in progress')) {
+      if (error.message.includes('in progress') || error.message.includes('Failed to check for transaction receipt')) {
         // 如果错误信息包含 "in progress"，什么也不做
       } else {
         // 其他错误，抛出异常
@@ -402,10 +402,10 @@ export async  function toBind(_address,referrer){
           });
           console.log('Transaction successful:', receipt);
         } catch (error) {
-          if (error.message.includes('in progress')) {
+          if (error.message.includes('in progress') || error.message.includes('Failed to check for transaction receipt')) {
             // 如果错误信息包含 "in progress"，什么也不做
           } else {
-            alert("bind failed:"+error.message);
+            //alert("bind failed:"+error.message);
             // 其他错误，抛出异常
             return false;
             //throw error;
@@ -433,7 +433,7 @@ export async  function toBookOrder(_address,num){
         });
         console.log('Transaction successful:', receipt);
       } catch (error) {
-        if (error.message.includes('in progress')) {
+        if (error.message.includes('in progress') || error.message.includes('Failed to check for transaction receipt')) {
           // 如果错误信息包含 "in progress"，什么也不做
         } else {
           alert("book error:"+error.message);
@@ -462,7 +462,7 @@ export async  function toBookOrder(_address,num){
       });
       console.log('Transaction successful:', receipt);
     } catch (error) {
-      if (error.message.includes('in progress')) {
+      if (error.message.includes('in progress') || error.message.includes('Failed to check for transaction receipt')) {
         // 如果错误信息包含 "in progress"，什么也不做
       } else {
         // 其他错误，抛出异常
@@ -549,7 +549,7 @@ export async function toWithdrawal(_address){
           });
           console.log('Transaction successful:', receipt);
         } catch (error) {
-          if (error.message.includes('in progress')) {
+          if (error.message.includes('in progress') || error.message.includes('Failed to check for transaction receipt')) {
             // 如果错误信息包含 "in progress"，什么也不做
           } else {
             // 其他错误，抛出异常
@@ -577,7 +577,7 @@ export async  function toWithdrawalDynamic(_address){
     });
     console.log('Transaction successful:', receipt);
   } catch (error) {
-    if (error.message.includes('in progress')) {
+    if (error.message.includes('in progress') || error.message.includes('Failed to check for transaction receipt')) {
       // 如果错误信息包含 "in progress"，什么也不做
     } else {
       // 其他错误，抛出异常

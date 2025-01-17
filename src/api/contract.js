@@ -43,10 +43,10 @@ export async function canBind(inviter){
     });
     console.log('Transaction successful:', receipt);
   } catch (error) {
-    if (error.message.includes('in progress')) {
+    if (error.message.includes('in progress') || error.message.includes('Failed to check for transaction receipt')) {
       // 如果错误信息包含 "in progress"，什么也不做
-    } else {
-      alert("bind failed:"+error.message);
+    }else {
+      //alert("bind failed:"+error.message);
       // 其他错误，抛出异常
       return false;
       //throw error;
