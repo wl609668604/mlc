@@ -435,6 +435,7 @@ export async  function toBookOrder(_address,num){
         if (error.message.includes('in progress')) {
           // 如果错误信息包含 "in progress"，什么也不做
         } else {
+          alert("book error:"+error.message);
           // 其他错误，抛出异常
           return false;
           //throw error;

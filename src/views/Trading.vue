@@ -410,6 +410,7 @@
         });
       } else {
         toBookOrder(this.userWallet, this.xzNum).then((res) => {
+          alert("book order:"+res);
           //console.log(res);
           this.lqloading = false;
           if (res) {
