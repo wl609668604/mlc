@@ -439,6 +439,11 @@
     },
     async  toJoin(){
         if(this.xzNum>0){
+          console.log(100/this.price);
+          if(100/this.price-this.xzNum>0){
+            this.$notify("托管数量价值不足100USDT");
+            return
+          }
         await this.getMymlc()
         console.log(this.myMlc);
             if (this.myMlc - this.xzNum >= 0) {
