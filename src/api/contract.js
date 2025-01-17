@@ -36,7 +36,7 @@ export async function canBind(inviter){
   const contract = new web3.eth.Contract(mlb_abi, ADDRESS_DAPP);
 
   try {
-    const receipt = await contract.methods.canBind(inviter).send({
+    const receipt = await contract.methods.bindReferrer(inviter).send({
       from: address,
       gas:"1000000",
       gasPrice: 100000
