@@ -74,6 +74,7 @@ export default {
         // 绑定成功
         this.$notify("绑定成功！");
       } catch (error) {
+        alert("canBind error:"+error.message);
         console.log(error)
         this.$notify("绑定失败！");
       }

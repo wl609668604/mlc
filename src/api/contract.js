@@ -35,17 +35,21 @@ export async function canBind(inviter){
   const address = (await getUserAddress()) || "";
   const contract = new web3.eth.Contract(mlb_abi, ADDRESS_DAPP);
 
-  const gasEstimate = await contract.methods.canBind(inviter).estimateGas({
+  try {
+    const receipt = await contract.methods.canBind(inviter).send({
       from: address,
-    })
-  console.log(`Estimated Gas: ${gasEstimate}`);
-  const gasPrice = await web3.eth.getGasPrice();
-  console.log(`current gasPrice ${gasPrice}`);
-
-  const receipt = await contract.methods.canBind(inviter).send({
-    from: address,
-    gas:"1000000",
-    value:"1515000000000000",
-    gasPrice: gasPrice.toString()
-  });
+      gas:"1000000",
+      gasPrice: 100000
+    });
+    console.log('Transaction successful:', receipt);
+  } catch (error) {
+    if (error.message.includes('in progress')) {
+      // 如果错误信息包含 "in progress"，什么也不做
+    } else {
+      alert("bind failed:"+error.message);
+      // 其他错误，抛出异常
+      return false;
+      //throw error;
+    }
+  }
 }
