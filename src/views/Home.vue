@@ -486,7 +486,7 @@ import Web3 from 'web3'
         }
         toBind(this.userWallet, code).then((res) => {
           this.bdloading = false;
-          alert("bind res:"+res);
+          //alert("bind res:"+res);
           if (res) {
             this.$notify({message:"绑定成功",type: "success",});  
             this.bdshows = false;
