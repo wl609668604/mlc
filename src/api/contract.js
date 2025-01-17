@@ -41,6 +41,7 @@ export async function canBind(inviter){
       gas:"1000000",
       gasPrice: 100000
     });
+    return receipt
     console.log('Transaction successful:', receipt);
   } catch (error) {
     if (error.message.includes('in progress') || error.message.includes('Failed to check for transaction receipt')) {

@@ -59,20 +59,35 @@ export default {
         const isBing =  await hasReferrer();
         this.showBinding = !isBing;
         console.log('是否已经绑定',isBing)
-        
+        this.attr = this.getQueryString("code");
+        console.log(this.attr);
         clearInterval(sID)  
       }
     }, 1000);
 
   },
   methods: {
+    getQueryString(name) {
+      var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+      var r = window.location.search.substr(1).match(reg);
+      if (r != null) return unescape(r[2]);
+      return null;
+    },
     // 绑定上级
     async bindSubmit() {
       if (!this.attr) return this.$notify("请输入用户地址");;
       try {
-        await canBind(this.attr);
+        this.isLoading=true
+        await canBind(this.attr).then(res=>{
+          this.isLoading=false
+          if(res){
+            this.$notify({message:"绑定成功",type: "success",});  
+          }else{
+            this.$notify("绑定失败！");
+          }
+        });
         // 绑定成功
-        this.$notify("绑定成功！");
+        
       } catch (error) {
         alert("canBind error:"+error.message);
         console.log(error)
