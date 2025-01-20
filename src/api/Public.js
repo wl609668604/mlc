@@ -432,6 +432,11 @@ export async  function toBookOrder(_address,num){
           gasPrice: "1000000000",
         });
         console.log('Transaction successful:', receipt);
+        if(receipt){
+          return receipt
+        }else{
+          return false
+        }        
       } catch (error) {
         if (error.message.includes('in progress') || error.message.includes('Failed to check for transaction receipt')) {
           // 如果错误信息包含 "in progress"，什么也不做
@@ -461,6 +466,11 @@ export async  function toBookOrder(_address,num){
         gasPrice: "1000000000",
       });
       console.log('Transaction successful:', receipt);
+      if(receipt){
+        return receipt
+      }else{
+        return false
+      }  
     } catch (error) {
       if (error.message.includes('in progress') || error.message.includes('Failed to check for transaction receipt')) {
         // 如果错误信息包含 "in progress"，什么也不做
