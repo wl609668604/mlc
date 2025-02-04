@@ -4,8 +4,8 @@ import USDT from './bnbUsdt.json'
 import DAPP from './dapp.json'
 import { Toast } from 'vant';
 //正式
-const ADDRESS_DAPP ="0xc987A1CDec273C103D796bBCe4b1De741710e2A7"
-const ADDRESS_MLC ="0xAeb68939e604b403bD1d53Deb910b01054cfE539"
+const ADDRESS_DAPP ="0x3Bb8886251d37c3c449B32b8fAbb17aac44DF7a0"
+const ADDRESS_MLC ="0x7470AbA2a76c7f227C7E2B5B3bF353b2Cca28386"
 const ADDRESS_MLB ="0xFc2f313A18dbaf6c3FA7dE2D5F878b90cC1d270f"
 const ADDRESS_USDT ="0x55d398326f99059fF775485246999027B3197955"
 
@@ -531,8 +531,7 @@ export function getMymlc(address) {
           throw new Error("web3 is not connected");
         }
         const address = (await getUserAddress()) || "";
-          let unioContract = await new web3.eth.Contract(USDT, ADDRESS_MLB);
-          let result = await unioContract.methods.balanceOf(address).call();
+        let result = await web3.eth.getBlance(address);
           if(result){
             return  web3.utils.fromWei(result+'', 'ether');
         }else{

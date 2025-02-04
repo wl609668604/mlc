@@ -255,8 +255,7 @@
       },
     toWithdrawalDynamic(){
       if(!this.$store.getters.userWallet){return}  
-      toApproves(this.$store.getters.userWallet,this.dynamicAmountMlb).then(res=>{
-          if(res){
+
       toWithdrawalDynamic(this.$store.getters.userWallet ).then(res=>{
         this.lqloading=false
         if(res){
@@ -267,16 +266,10 @@
           this.$notify("提现失败")
         }
       })
-    }else{
-            this.lqloading=false
-          }
-        }) 
     },
     toWithdrawal(){
       if(!this.$store.getters.userWallet){return}  
-        toApproves(this.$store.getters.userWallet,this.staticAmountMlb).then(res=>{
-          if(res){
-            toWithdrawal(this.$store.getters.userWallet ).then(res=>{
+      toWithdrawal(this.$store.getters.userWallet ).then(res=>{
         this.lqloading=false
         if(res){
           this.$notify({message:"提现成功",type: "success",});   
@@ -284,12 +277,7 @@
           this.getUser() 
         }else{
           this.$notify("提现失败")
-        }
-      })
-          }else{
-            this.lqloading=false
-          }
-        })  
+        })
     },
     formatDate(e) {
       if (e == 0) {

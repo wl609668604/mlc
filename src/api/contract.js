@@ -1,7 +1,7 @@
 import { connectWallet, getUserAddress } from "./web3_modal";
 import usdt_abi from './bnbUsdt.json'
 import mlb_abi from './dapp.json'
-const ADDRESS_DAPP ="0xc987A1CDec273C103D796bBCe4b1De741710e2A7"
+const ADDRESS_DAPP ="0x3Bb8886251d37c3c449B32b8fAbb17aac44DF7a0"
 const ADDRESS_MLC ="0xAeb68939e604b403bD1d53Deb910b01054cfE539"
 const ADDRESS_MLB ="0xFc2f313A18dbaf6c3FA7dE2D5F878b90cC1d270f"
 const ADDRESS_USDT ="0x55d398326f99059fF775485246999027B3197955"
