@@ -551,10 +551,13 @@ export async function toWithdrawal(_address){
         let unioContract = await new web3.eth.Contract(DAPP, ADDRESS_DAPP);
 
         try {
+          let extraInfo = await unioContract.methods.userExtras(address).call();
+  
           const receipt = await unioContract.methods.withdrawalStatic().send({
             from: address,
             gas:"1000000",
             gasPrice: "1000000000",
+            value: extraInfo["staticAmountMlb"],
           });
           console.log('Transaction successful:', receipt);
         } catch (error) {
@@ -579,10 +582,13 @@ export async  function toWithdrawalDynamic(_address){
   let unioContract = await new web3.eth.Contract(DAPP, ADDRESS_DAPP);
 
   try {
+    let extraInfo = await unioContract.methods.userExtras(address).call();
+  
     const receipt = await unioContract.methods.withdrawalDynamic().send({
       from: address,
       gas:"1000000",
       gasPrice: "1000000000",
+      value: extraInfo["dynamicAmountMlb"],
     });
     console.log('Transaction successful:', receipt);
   } catch (error) {
