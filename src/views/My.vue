@@ -277,7 +277,8 @@
           this.getUser() 
         }else{
           this.$notify("提现失败")
-        })
+        }
+      })
     },
     formatDate(e) {
       if (e == 0) {

@@ -50,6 +50,7 @@ export default {
   async mounted() {
 
     let sID = setInterval(async () => {
+
       const attr = await getAddress();
       if(attr){
         console.log('钱包地址',attr)
@@ -63,7 +64,7 @@ export default {
         console.log(this.attr);
         clearInterval(sID)  
       }
-    }, 1000);
+    }, 2000);
 
   },
   methods: {

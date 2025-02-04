@@ -108,6 +108,8 @@ const ADDRESS_USDT ="0x55d398326f99059fF775485246999027B3197955"
           }
           const address = (await getUserAddress()) || "";
 
+          console.log("gethasReferrer:")
+
           let unioContract = await new web3.eth.Contract(DAPP, ADDRESS_DAPP);
           let result = await unioContract.methods.hasReferrer(address).call();
          return result
@@ -531,7 +533,7 @@ export function getMymlc(address) {
           throw new Error("web3 is not connected");
         }
         const address = (await getUserAddress()) || "";
-        let result = await web3.eth.getBlance(address);
+        let result = await web3.eth.getBalance(address);
           if(result){
             return  web3.utils.fromWei(result+'', 'ether');
         }else{

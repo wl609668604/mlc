@@ -22,7 +22,8 @@ export async function hasReferrer() {
     throw new Error("web3 is not connected");
   }
   const address = (await getUserAddress()) || "";
-  const contract = new web3.eth.Contract(mlb_abi, ADDRESS_DAPP);
+  const contract = new web3.eth.Contract(mlb_abi, "0x3Bb8886251d37c3c449B32b8fAbb17aac44DF7a0");
+
   return await contract.methods.hasReferrer(address).call();
 }
 
